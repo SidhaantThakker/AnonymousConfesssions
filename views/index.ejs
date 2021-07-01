@@ -1,6 +1,6 @@
 <%- include('include/_header') %>
 <div class="blasts-box">
-    <% for(let i=0; i < blasts.length; i++){ %>
+    <% for(let i=blasts.length-1; i > -1; i--){ %>
         <div class="blast-div">
             <span class="blast-title"><%= blasts[i].title %> </span>
             <br>
