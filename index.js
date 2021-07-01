@@ -75,16 +75,21 @@ MongoClient.connect(connectionString, {
 
     //POST One Blast
     app.post('/api/blasts', (req,res) => {
-        const newBlast = {
-            id: uuid.v4(),
-            title: req.body.title,
-            text: req.body.text,
+        if(!req.body.title){
+            console.log("Empty Blast! Skipping...");
+            res.redirect('/');
+        } else {
+            const newBlast = {
+                id: uuid.v4(),
+                title: req.body.title,
+                text: req.body.text,
+            }
+            blasts.insertOne(newBlast)
+            .then(results => {
+                res.redirect('/')
+            })
+            .catch(err => console.log(err));
         }
-        blasts.insertOne(newBlast)
-        .then(results => {
-            res.redirect('/')
-        })
-        .catch(err => console.log(err));
     });
 
     //UPDATE One Blast
