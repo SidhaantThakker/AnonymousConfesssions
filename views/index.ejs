@@ -1,0 +1,11 @@
+<%- include('include/_header') %>
+<div class="blasts-box">
+    <% for(let i=0; i < blasts.length; i++){ %>
+        <div class="blast-div">
+            <span class="blast-title"><%= blasts[i].title %> </span>
+            <br>
+            <span class="blast-text"><%= blasts[i].text %> </span>
+        </div>
+    <% } %>
+</div>
+<%- include('include/_footer') %>
