@@ -11,7 +11,7 @@ dotenv.config();
 //Setting PORT
 const PORT = process.env.PORT || 5000;
 //Setting Connection String
-const connectionString = "mongodb+srv://admin:"+process.env.DB_PASSWORD+"@cluster0.lxiho.mongodb.net/AnonConfDB?retryWrites=true&w=majority";
+const connectionString = process.env.MONGO_CONN_STRING;
 MongoClient.connect(connectionString, {
     useUnifiedTopology: true
 })
